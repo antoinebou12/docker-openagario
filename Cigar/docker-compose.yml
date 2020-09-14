@@ -3,4 +3,5 @@ version: "3.8"
 services:
   web:
     build: .
-    networks: host
+    ports:
+      - "80:8080"

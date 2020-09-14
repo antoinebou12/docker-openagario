@@ -1,11 +1,26 @@
 version: "3.8"
 services:
   server:
+    container_name: MultiOgarII
     build: MultiOgarII/
-    networks: host
-    command: node src/index.js
+    command: node index.js
+    ports:
+      - "8080:8080"
+    restart: "${DOCKER_RESTART_POLICY:-unless-stopped}"
 
   web:
-    build: MultiOgarII/
-    networks: host
-    command: node src/index.js
+    container_name: Cigar
+    build: Cigar/
+    networks:
+      - cigar-multiogar
+    ports:
+      - "8000:80"
+    links:
+      - "server"
+    depends_on:
+      - "server"
+    restart: "${DOCKER_RESTART_POLICY:-unless-stopped}"
+
+networks:
+  cigar-multiogar:
+    driver: bridge

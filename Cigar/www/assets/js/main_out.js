@@ -1,5 +1,5 @@
 (function(wHandle, wjQuery) {
-    var CONNECTION_URL = "127.0.0.1:8000", // Default Connection
+    var CONNECTION_URL = window.location.href.split("://")[1].split(":")[0] + ":8080", // Default Connection
         SKIN_URL = "./skins/"; // Skin Directory
 
     wHandle.setserver = function(arg) {

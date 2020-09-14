@@ -55,14 +55,14 @@
                     <input id="nick" class="form-control save" data-box-id="0" placeholder="Nick" maxlength="15" />
                     <select id="gamemode" class="form-control" onchange="setserver($(this).val());" required>
                         <option selected disabled>Gamemode:</option>
-                        <option value="127.0.0.1:8000">FFA</option>
+                        <option id="FFA">FFA</option>
                     </select>
                     <br clear="both" />
                 </div>
 
                 <div class="form-group">
                     <div class="mb-10">
-                        <input type="text" value="127.0.0.1:8000">
+                        <input id="ip" type="text" class="form-control save" value="127.0.0.1:8080" placeholder="127.0.0.1:8080">
                     </div>
                     <div class="mb-10">
                         <a data-toggle="modal" data-target="#inPageModal" onclick="openSkinsList();" class="btn-primary btn btn-info" role="button" style="width: 100%;">Skins Gallery</a>
@@ -129,5 +129,8 @@
     <div style="font-family:'Ubuntu'">&nbsp;</div>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('FFA').value = window.location.href.split("://")[1].split(":")[0] + ":8080";
+    </script>
 </body>
 </html>

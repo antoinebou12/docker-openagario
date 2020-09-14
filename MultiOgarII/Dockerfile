@@ -1,15 +1,15 @@
-FROM node:argon
+FROM node:7
 
 # Create app directory
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # Install app dependencies
-COPY package.json /usr/src/app/
+COPY . /usr/src/app/
 RUN npm install
 
-# Bundle app source
-COPY . /usr/src/app
+RUN cd src
+WORKDIR /usr/src/app/src
 
 EXPOSE 8000
-CMD node src/index.js
+CMD node index.js
