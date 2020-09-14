@@ -1,0 +1,11 @@
+version: "3.8"
+
+server:
+  build: MultiOgarII/
+  networks: host
+  command: node src/index.js
+
+web:
+  build: MultiOgarII/
+  networks: host
+  command: node src/index.js
