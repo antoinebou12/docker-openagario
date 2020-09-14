@@ -1,0 +1,10 @@
+version: "3.8"
+
+server:
+  build: .
+  networks: host
+  command: node src/index.js
+
+web:
+  build: .
+  networks: host
